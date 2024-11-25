@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Login = () => {
+const Login = (props) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleLogin = () => {
+    props.setUser(username);
+  };
+
   return (
     <div className="login">
       <img
@@ -26,6 +41,7 @@ const Login = () => {
             borderWidth: "1px",
           }}
           placeholder="Username"
+          onChange={handleUsernameChange}
         ></input>
       </div>
 
@@ -43,13 +59,16 @@ const Login = () => {
           }}
           placeholder="Password"
           type="password"
+          onChange={handlePasswordChange}
         ></input>
       </div>
 
       <br />
 
       <div className="row">
-        <div className="login-button">Login</div>
+        <div className="login-button" onClick={handleLogin}>
+          Login
+        </div>
       </div>
     </div>
   );

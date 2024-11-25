@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Login from "./pages/Login";
 
 function App() {
+  const [user, setUser] = useState("");
+
   return (
     <div className="background">
-      <Login></Login>
+      <Login setUser={setUser}></Login>
     </div>
   );
 }
