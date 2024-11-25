@@ -91,6 +91,7 @@ body {
 }
 
 .login-button {
+  color: white;
   width: 60vw;
   margin: auto;
   display: grid;
@@ -107,4 +108,5 @@ body {
 .login-button:hover {
   background-color: transparent;
   cursor: pointer;
+  color: black;
 }
