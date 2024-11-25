@@ -1,22 +1,101 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-Bold.woff2") format("woff2"),
+    url("fonts/Aileron-Bold.woff") format("woff"),
+    url("fonts/Aileron-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-Black.woff2") format("woff2"),
+    url("fonts/Aileron-Black.woff") format("woff"),
+    url("fonts/Aileron-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-Italic.woff2") format("woff2"),
+    url("fonts/Aileron-Italic.woff") format("woff"),
+    url("fonts/Aileron-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-Regular.woff2") format("woff2"),
+    url("fonts/Aileron-Regular.woff") format("woff"),
+    url("fonts/Aileron-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-BoldItalic.woff2") format("woff2"),
+    url("fonts/Aileron-BoldItalic.woff") format("woff"),
+    url("fonts/Aileron-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("fonts/Aileron-BlackItalic.woff2") format("woff2"),
+    url("fonts/Aileron-BlackItalic.woff") format("woff"),
+    url("fonts/Aileron-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
 
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-family: "Oxygen", sans-serif;
-}
-
+html,
 body {
   margin: 0;
-  background-color: whitesmoke;
+  margin-block: 0;
+  font-family: "Aileron";
+  font-weight: normal;
+  font-style: normal;
 }
 
-.centered {
-  margin: 3rem auto;
-  text-align: center;
-  display: flex;
+.background {
+  display: grid;
+  background-color: #f1ddde;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  background-color: #dfb4b9;
+  width: 90vw;
+  height: 90vh;
+  max-width: 540px;
+  max-height: 960px;
+  padding: 20px;
+  display: grid;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+
+.login {
+  background-color: rgba(255, 255, 255, 0.7);
+  display: grid;
+  gap: 5px;
+  align-self: center;
+  justify-self: center;
   justify-content: center;
   align-items: center;
+  width: 80%;
+  height: fit-content;
+  border-radius: 50px;
+  padding: 10%;
 }
