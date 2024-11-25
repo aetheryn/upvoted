@@ -6,8 +6,8 @@ const Login = () => {
       <img
         src="logo.png"
         style={{
-          width: "500px",
-          height: "200px",
+          width: "80vw",
+          height: "30vh",
           objectFit: "cover",
           marginBottom: "0px",
         }}
@@ -16,9 +16,9 @@ const Login = () => {
       <div className="row">
         <input
           style={{
-            width: "80%",
+            width: "50vw",
             margin: "auto",
-            height: "40px",
+            height: "5vh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
@@ -32,9 +32,9 @@ const Login = () => {
       <div className="row">
         <input
           style={{
-            width: "80%",
+            width: "50vw",
             margin: "auto",
-            height: "40px",
+            height: "5vh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
