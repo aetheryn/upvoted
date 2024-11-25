@@ -6,14 +6,12 @@ const Login = () => {
       <img
         src="logo.png"
         style={{
-          width: "300px",
-          height: "100px",
+          width: "500px",
+          height: "200px",
           objectFit: "cover",
           marginBottom: "0px",
         }}
       ></img>
-
-      <br />
 
       <div className="row">
         <input
@@ -51,20 +49,7 @@ const Login = () => {
       <br />
 
       <div className="row">
-        <button
-          style={{
-            width: "80%",
-            margin: "auto",
-            height: "40px",
-            backgroundColor: "#f1ddde",
-            borderColor: "#f1ddde",
-            borderStyle: "solid",
-            borderRadius: "10px",
-            borderWidth: "1px",
-          }}
-        >
-          Login
-        </button>
+        <div className="login-button">Login</div>
       </div>
     </div>
   );
