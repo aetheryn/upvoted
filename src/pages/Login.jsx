@@ -6,8 +6,8 @@ const Login = () => {
       <img
         src="logo.png"
         style={{
-          width: "80vw",
-          height: "15dvh",
+          width: "90dvw",
+          height: "30dvw",
           objectFit: "cover",
           marginBottom: "0px",
         }}
