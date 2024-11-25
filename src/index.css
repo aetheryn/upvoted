@@ -63,23 +63,29 @@ body {
   font-family: "Aileron";
   font-weight: normal;
   font-style: normal;
+  background-color: white;
 }
 
 .background {
   display: grid;
+  margin: auto;
   background-color: #ffeded;
   width: 100vw;
   height: 100vh;
+  max-width: 440px;
+  max-height: 782.22px;
   align-items: center;
   justify-content: center;
 }
 
 .login {
   /* background-color: white; */
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  max-height: 782.22px;
   display: grid;
-  gap: 5px;
+  gap: 1%;
   height: fit-content;
   align-self: center;
   justify-self: center;
@@ -89,7 +95,7 @@ body {
 }
 
 .login-button {
-  width: 50vw;
+  width: 60vw;
   margin: auto;
   display: grid;
   justify-content: center;

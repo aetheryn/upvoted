@@ -7,7 +7,7 @@ const Login = () => {
         src="logo.png"
         style={{
           width: "80vw",
-          height: "30vh",
+          height: "25vh",
           objectFit: "cover",
           marginBottom: "0px",
         }}
@@ -16,7 +16,7 @@ const Login = () => {
       <div className="row">
         <input
           style={{
-            width: "50vw",
+            width: "60vw",
             margin: "auto",
             height: "5vh",
             backgroundColor: "transparent",
@@ -32,7 +32,7 @@ const Login = () => {
       <div className="row">
         <input
           style={{
-            width: "50vw",
+            width: "60vw",
             margin: "auto",
             height: "5vh",
             backgroundColor: "transparent",
