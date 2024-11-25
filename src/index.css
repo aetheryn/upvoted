@@ -81,16 +81,14 @@ body {
 .login {
   /* background-color: white; */
   width: 100%;
-  max-width: 440px;
-  max-height: 782.22px;
   display: grid;
   gap: 1%;
   height: fit-content;
+  max-height: 100vh;
   align-self: center;
   justify-self: center;
   justify-content: center;
   align-items: center;
-  padding: 10%;
 }
 
 .login-button {
