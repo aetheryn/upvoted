@@ -14,14 +14,10 @@ const Profile = () => {
     .quality("auto")
     .resize(auto().gravity(autoGravity()).width(500).height(500)); // Transform the image: auto-crop to square aspect_ratio
 
-  return <AdvancedImage cldImg={img} />;
+  //   return <AdvancedImage cldImg={img} />;
+  // };
+
+  return <div></div>;
 };
-
-//     return (
-//         <div>
-
-//         </div>
-//     );
-// };
 
 export default Profile;
