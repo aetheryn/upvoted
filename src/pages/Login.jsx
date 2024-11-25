@@ -7,7 +7,7 @@ const Login = () => {
         src="logo.png"
         style={{
           width: "80vw",
-          height: "25vh",
+          height: "15dvh",
           objectFit: "cover",
           marginBottom: "0px",
         }}
@@ -18,7 +18,7 @@ const Login = () => {
           style={{
             width: "60vw",
             margin: "auto",
-            height: "5vh",
+            height: "5dvh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
@@ -34,7 +34,7 @@ const Login = () => {
           style={{
             width: "60vw",
             margin: "auto",
-            height: "5vh",
+            height: "5dvh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
