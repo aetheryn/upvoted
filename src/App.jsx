@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Rating from "./pages/Rating";
 
 function App() {
+  const [userId, setUserId] = useState("");
   const [user, setUser] = useState("");
 
   useEffect(() => {
@@ -15,13 +16,22 @@ function App() {
       {!user ? (
         <Routes>
           <Route path="/" element={<Navigate replace to="/login" />} />
-          <Route path="login" element={<Login setUser={setUser}></Login>} />
+          <Route
+            path="login"
+            element={<Login setUser={setUser} setUserId={setUserId}></Login>}
+          />
           <Route path="*" element={<Navigate replace to="/login" />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="login" element={<Login setUser={setUser}></Login>} />
-          <Route path="rating" element={<Rating user={user}></Rating>} />
+          <Route
+            path="login"
+            element={<Login setUser={setUser} setUserId={setUserId}></Login>}
+          />
+          <Route
+            path="rating"
+            element={<Rating user={user} userId={userId}></Rating>}
+          />
         </Routes>
       )}
     </div>

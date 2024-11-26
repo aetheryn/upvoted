@@ -71,9 +71,7 @@ body {
   margin: auto;
   background-color: #ffeded;
   width: 100vw;
-  height: 100dvh;
-  max-width: 440px;
-  max-height: 782.22px;
+  min-height: 100dvh;
   align-items: center;
   justify-content: center;
 }
@@ -109,4 +107,24 @@ body {
   background-color: transparent;
   cursor: pointer;
   color: black;
+}
+
+.rating-background {
+  min-width: 100vw;
+  min-height: 100dvh;
+  background-color: #ffeded;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.banner {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  height: 20vw;
+  width: 70vw;
+  background-color: #dfb4ba;
+  border-radius: 1vw;
+  align-items: center;
+  justify-items: center;
 }

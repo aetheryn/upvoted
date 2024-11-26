@@ -31,6 +31,7 @@ const Login = (props) => {
             username === record.fields.username &&
             password === record.fields.password
           ) {
+            props.setUserId(record.id);
             props.setUser(record.fields.username);
             navigate("/rating");
           }
@@ -107,7 +108,7 @@ const Login = (props) => {
           <>
             <br />
             <div style={{ textAlign: "center", marginBottom: "2dvh" }}>
-              Wrong username or password.
+              You have entered the wrong username or password.
             </div>
             <br />
           </>
