@@ -34,7 +34,6 @@ const Rating = (props) => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
         delete data.fields.password;
         setUserRatings(data.fields);
       }
@@ -52,9 +51,7 @@ const Rating = (props) => {
 
   return (
     <div className="rating-background">
-      <div>
-        Hi, {displayedName}. {JSON.stringify(userRatings)}
-      </div>
+      <div>Hi, {displayedName}.</div>
       <div>Who are you rating for today?</div>
       {displayedList.map((member) => {
         return (
@@ -63,6 +60,7 @@ const Rating = (props) => {
             member={member}
             userRatings={userRatings}
             getData={getData}
+            userId={props.userId}
           />
         );
       })}

@@ -26,7 +26,6 @@ const Login = (props) => {
       if (response.ok) {
         const data = await response.json();
         for (const record of data.records) {
-          console.log(record);
           if (
             username === record.fields.username &&
             password === record.fields.password
