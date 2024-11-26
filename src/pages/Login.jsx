@@ -1,8 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorLogin, setErrorLogin] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+        },
+      };
+
+      const response = await fetch(
+        import.meta.env.VITE_AIRTABLE_SERVER,
+        options
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        for (const record of data.records) {
+          console.log(record);
+          if (
+            username === record.fields.username &&
+            password === record.fields.password
+          ) {
+            props.setUser(record.fields.username);
+            navigate("/rating");
+          }
+        }
+      }
+    } catch (error) {
+      if (error.name !== "AbortError") {
+        console.log(error.message);
+      }
+    }
+
+    setErrorLogin(true);
+  };
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -10,10 +51,6 @@ const Login = (props) => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-  };
-
-  const handleLogin = () => {
-    props.setUser(username);
   };
 
   return (
@@ -66,7 +103,16 @@ const Login = (props) => {
       <br />
 
       <div className="row">
-        <div className="login-button" onClick={handleLogin}>
+        {errorLogin && (
+          <>
+            <br />
+            <div style={{ textAlign: "center", marginBottom: "2dvh" }}>
+              Wrong username or password.
+            </div>
+            <br />
+          </>
+        )}
+        <div className="login-button" onClick={(event) => handleLogin(event)}>
           Login
         </div>
       </div>
