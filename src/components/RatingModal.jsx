@@ -6,6 +6,7 @@ import { color } from "@cloudinary/url-gen/qualifiers/background";
 
 const Overlay = (props) => {
   const [ratingValue, setRatingValue] = useState("");
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -18,47 +19,50 @@ const Overlay = (props) => {
   };
 
   const handleSubmit = async () => {
-    console.log(ratingValue);
-    setIsLoading(true);
-    try {
-      const options = {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
-        },
-        body: JSON.stringify({
-          records: [
-            {
-              id: props.userId,
-              fields: {
-                [props.member.username]: Math.round(ratingValue * 100) / 100,
+    if (ratingValue.length > 0) {
+      setIsLoading(true);
+      try {
+        const options = {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+          },
+          body: JSON.stringify({
+            records: [
+              {
+                id: props.userId,
+                fields: {
+                  [props.member.username]: Math.round(ratingValue * 100) / 100,
+                },
               },
-            },
-          ],
-        }),
-      };
+            ],
+          }),
+        };
 
-      const response = await fetch(
-        import.meta.env.VITE_AIRTABLE_SERVER,
-        options
-      );
+        const response = await fetch(
+          import.meta.env.VITE_AIRTABLE_SERVER,
+          options
+        );
 
-      if (response.ok) {
-        setIsLoading(false);
-        setIsSubmitted(true);
-        setTimeout(() => {
-          props.setShowModal(false);
-          props.getData();
-        }, 3000);
+        if (response.ok) {
+          setIsLoading(false);
+          setIsSubmitted(true);
+          setTimeout(() => {
+            props.setShowModal(false);
+            props.getData();
+          }, 3000);
+        }
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.log(error.message);
+        }
       }
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        console.log(error.message);
-      }
+
+      setIsLoading(false);
+    } else {
+      setIsError(true);
     }
-
-    setIsLoading(false);
   };
 
   return (
@@ -161,6 +165,11 @@ const Overlay = (props) => {
                     <i className="fa-solid fa-star"></i>
                   </label>
                 </div>
+                {isError && (
+                  <div style={{ fontSize: "6vw", color: "white" }}>
+                    You have to submit a minimum of 1 star.
+                  </div>
+                )}
                 <br />
                 <div className={styles.buttons}>
                   <div className={styles.submit} onClick={handleSubmit}>
@@ -178,7 +187,7 @@ const Overlay = (props) => {
                   color: "white",
                   maxWidth: "70dvw",
                   textAlign: "center",
-                  fontSize: "4vw",
+                  fontSize: "6vw",
                 }}
               >
                 You have submitted a rating of <span>{ratingValue}</span>/5 for{" "}
