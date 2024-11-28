@@ -146,7 +146,7 @@ body {
   height: 20vw;
   width: 80vw;
   background-color: #dfb4ba;
-  border-radius: 1vw;
+  border-radius: 2vw;
   align-items: center;
   justify-items: center;
   margin: 1dvh 0;
@@ -160,10 +160,6 @@ body {
 
 .banner > div > div {
   color: #a56d94;
-}
-
-.banner[disabled] {
-  pointer-events: none;
 }
 
 .banner.unclickable {

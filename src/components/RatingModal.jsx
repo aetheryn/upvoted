@@ -51,7 +51,7 @@ const Overlay = (props) => {
           setTimeout(() => {
             props.setShowModal(false);
             props.getData();
-          }, 3000);
+          }, 2500);
         }
       } catch (error) {
         if (error.name !== "AbortError") {
