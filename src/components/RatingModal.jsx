@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./RatingModal.module.css";
 import LoadingSpinner from "./LoadingSpinner";
 import { color } from "@cloudinary/url-gen/qualifiers/background";
+import { center } from "@cloudinary/url-gen/qualifiers/textAlignment";
 
 const Overlay = (props) => {
   const [ratingValue, setRatingValue] = useState("");
@@ -64,6 +65,10 @@ const Overlay = (props) => {
       setIsError(true);
     }
   };
+
+  useEffect(() => {
+    setIsError(false);
+  }, [ratingValue]);
 
   return (
     <div className={styles.backdrop}>
@@ -166,7 +171,14 @@ const Overlay = (props) => {
                   </label>
                 </div>
                 {isError && (
-                  <div style={{ fontSize: "6vw", color: "white" }}>
+                  <div
+                    style={{
+                      fontSize: "6vw",
+                      color: "white",
+                      width: "80%",
+                      textAlign: "center",
+                    }}
+                  >
                     You have to submit a minimum of 1 star.
                   </div>
                 )}
