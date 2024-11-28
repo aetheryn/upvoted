@@ -68,17 +68,17 @@ const Overlay = (props) => {
               src={props.member.img}
               alt={props.member.name}
               style={{
-                width: "20dvw",
-                height: "20dvw",
+                width: "50dvw",
+                height: "50dvw",
                 borderRadius: "50%",
                 borderColor: "white",
-                borderWidth: "1dvw",
+                borderWidth: "2dvw",
                 borderStyle: "solid",
               }}
             ></img>
             <div
               style={{
-                fontSize: "300%",
+                fontSize: "250%",
                 color: "white",
                 fontWeight: "bolder",
               }}
@@ -169,7 +169,7 @@ const Overlay = (props) => {
               <div
                 style={{
                   color: "white",
-                  maxWidth: "45dvw",
+                  maxWidth: "70dvw",
                   textAlign: "center",
                 }}
               >
