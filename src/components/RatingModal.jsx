@@ -70,6 +70,8 @@ const Overlay = (props) => {
               style={{
                 width: "50dvw",
                 height: "50dvw",
+                maxWidth: "30vh",
+                maxHeight: "30vh",
                 borderRadius: "50%",
                 borderColor: "white",
                 borderWidth: "2dvw",
@@ -78,14 +80,16 @@ const Overlay = (props) => {
             ></img>
             <div
               style={{
-                fontSize: "250%",
+                fontSize: "8vw",
                 color: "white",
                 fontWeight: "bolder",
               }}
             >
               {props.member.name}
             </div>
-            <div style={{ color: "white", fontStyle: "italic" }}>
+            <div
+              style={{ fontSize: "4vw", color: "white", fontStyle: "italic" }}
+            >
               @{props.member.username}
             </div>
 
@@ -171,6 +175,7 @@ const Overlay = (props) => {
                   color: "white",
                   maxWidth: "70dvw",
                   textAlign: "center",
+                  fontSize: "2vw",
                 }}
               >
                 You have submitted a rating of <span>{ratingValue}</span>/5 for{" "}

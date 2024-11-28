@@ -14,7 +14,7 @@
   background-color: #dfb4ba;
   border-radius: 30px;
   width: 90dvw;
-  height: 90vh;
+  height: 90dvh;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -37,7 +37,7 @@
 }
 
 .rating label i {
-  font-size: 250%;
+  font-size: 8vw;
   transition: 0.1 ease-in;
 }
 
@@ -62,15 +62,16 @@ input[type="radio"]:checked ~ label i {
   /* grid-template-columns: 50% 50%; */
   justify-items: center;
   align-items: center;
+  font-size: 4vw;
 }
 
 .submit {
   background-color: #a56d94;
   border: #a56d94 solid 0.3vw;
-  border-radius: 0.5vw;
+  border-radius: 2vw;
   width: 100%;
-  padding: 1vw;
-  margin: 0.5vw;
+  padding: 2vw;
+  margin: 1vw;
   text-align: center;
   color: white;
 }
@@ -81,11 +82,11 @@ input[type="radio"]:checked ~ label i {
 
 .cancel {
   border: #ffeded solid 0.2vw;
-  border-radius: 0.5vw;
+  border-radius: 2vw;
   width: 100%;
   text-align: center;
-  padding: 1vw;
-  margin: 0.5vw;
+  padding: 2vw;
+  margin: 1vw;
   color: white;
 }
 

@@ -86,16 +86,17 @@ body {
   justify-self: center;
   justify-content: center;
   align-items: center;
+  font-size: 4vw;
 }
 
 .login-button {
   color: white;
-  width: 60vw;
+  width: 80vw;
   margin: auto;
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 5dvh;
+  height: 8dvh;
   background-color: #e27860;
   border-color: #e27860;
   border-style: solid;
@@ -122,9 +123,31 @@ body {
   display: grid;
   grid-template-columns: 35% 65%;
   height: 20vw;
-  width: 70vw;
+  width: 80vw;
   background-color: #dfb4ba;
   border-radius: 1vw;
   align-items: center;
   justify-items: center;
+  margin: 1dvh;
+}
+
+.banner > div > div {
+  color: white;
+}
+
+.banner.unclickable {
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: rgb(99, 99, 99);
+}
+
+.banner.unclickable:hover {
+  cursor: not-allowed;
+}
+
+.banner.unclickable > img {
+  filter: grayscale();
+}
+.banner.unclickable > div > div {
+  color: rgb(42, 42, 42);
 }

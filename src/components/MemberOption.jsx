@@ -5,9 +5,15 @@ const MemberOption = (props) => {
   const [isRated, setIsRated] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
+  const addUnclickableClass = () => {
+    const element = document.querySelector(".banner");
+    element.classList.add("unclickable");
+  };
+
   const checkRating = () => {
     if (props.member.username in props.userRatings) {
       setIsRated(true);
+      addUnclickableClass();
     }
   };
 
@@ -41,18 +47,14 @@ const MemberOption = (props) => {
         />
 
         <div style={{ justifySelf: "flex-start" }}>
-          <div
-            style={{ fontSize: "3vw", color: "white", fontWeight: "bolder" }}
-          >
+          <div style={{ fontSize: "4vw", fontWeight: "bolder" }}>
             {props.member.name}
           </div>
-          <div
-            style={{ fontSize: "1.5vw", color: "white", fontStyle: "italic" }}
-          >
+          <div style={{ fontSize: "2vw", fontStyle: "italic" }}>
             @{props.member.username}
           </div>
           {isRated && (
-            <div style={{ fontSize: "1vw", color: "white" }}>
+            <div style={{ fontSize: "2vw" }}>
               You have rated for this person.
             </div>
           )}

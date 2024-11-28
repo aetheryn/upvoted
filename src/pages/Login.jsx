@@ -75,9 +75,9 @@ const Login = (props) => {
       <div className="row">
         <input
           style={{
-            width: "60vw",
+            width: "80vw",
             margin: "auto",
-            height: "5dvh",
+            height: "8dvh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
@@ -92,9 +92,9 @@ const Login = (props) => {
       <div className="row">
         <input
           style={{
-            width: "60vw",
+            width: "80vw",
             margin: "auto",
-            height: "5dvh",
+            height: "8dvh",
             backgroundColor: "transparent",
             borderColor: "#e27860",
             borderStyle: "solid",
