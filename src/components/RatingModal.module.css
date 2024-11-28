@@ -14,7 +14,8 @@
   background-color: #dfb4ba;
   border-radius: 30px;
   width: 50dvw;
-  height: 50dvh;
+  height: 100dvw;
+  max-height: 80vh;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -26,20 +27,24 @@
   cursor: pointer;
 }
 
+.rating:hover {
+  cursor: pointer;
+}
+
 .rating label {
   display: inline;
   cursor: pointer;
-  color: #ffffff;
+  color: #ffeded;
 }
 
 .rating label i {
-  font-size: 3vw;
+  font-size: 300%;
   transition: 0.1 ease-in;
 }
 
 .rating label:hover i,
 .rating label:hover ~ label i {
-  color: yellow;
+  color: #a56d94;
 }
 
 .radio {
@@ -48,30 +53,43 @@
 
 input[type="radio"]:checked + label i,
 input[type="radio"]:checked ~ label i {
-  color: yellow;
+  color: #a56d94;
 }
 
 .buttons {
   width: 35dvw;
-  height: 5dvw;
+  height: 10dvw;
   display: grid;
-  grid-template-columns: 50% 50%;
+  /* grid-template-columns: 50% 50%; */
   justify-items: center;
   align-items: center;
 }
 
 .submit {
-  background-color: #ffeded;
-  border: #ffeded solid 0.3vw;
+  background-color: #a56d94;
+  border: #a56d94 solid 0.3vw;
   border-radius: 0.5vw;
-  width: 15dvw;
+  width: 100%;
+  padding: 1vw;
+  margin: 0.5vw;
   text-align: center;
+  color: white;
+}
+
+.submit:hover {
+  cursor: pointer;
 }
 
 .cancel {
-  border: #ffffff solid 0.2vw;
+  border: #ffeded solid 0.2vw;
   border-radius: 0.5vw;
-  width: 15dvw;
+  width: 100%;
   text-align: center;
-  color: #ffffff;
+  padding: 1vw;
+  margin: 0.5vw;
+  color: white;
+}
+
+.cancel:hover {
+  cursor: pointer;
 }

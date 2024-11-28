@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./RatingModal.module.css";
+import LoadingSpinner from "./LoadingSpinner";
+import { color } from "@cloudinary/url-gen/qualifiers/background";
 
 const Overlay = (props) => {
   const [ratingValue, setRatingValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleClick = () => {
     props.setShowModal(false);
@@ -14,6 +18,7 @@ const Overlay = (props) => {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     try {
       const options = {
         method: "PATCH",
@@ -39,7 +44,9 @@ const Overlay = (props) => {
       );
 
       if (response.ok) {
-        props.setShowModal(false);
+        setIsLoading(false);
+        setIsSubmitted(true);
+        setTimeout(() => props.setShowModal(false), 2000);
         props.getData();
       }
     } catch (error) {
@@ -47,101 +54,133 @@ const Overlay = (props) => {
         console.log(error.message);
       }
     }
+
+    setIsLoading(false);
   };
 
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        <img
-          src={props.member.img}
-          alt={props.member.name}
-          style={{
-            width: "15dvw",
-            height: "15dvw",
-            borderRadius: "50%",
-            borderColor: "white",
-            borderWidth: "0.5dvw",
-            borderStyle: "solid",
-          }}
-        ></img>
+        {isLoading && <LoadingSpinner />}
+        {!isLoading && (
+          <>
+            <img
+              src={props.member.img}
+              alt={props.member.name}
+              style={{
+                width: "20dvw",
+                height: "20dvw",
+                borderRadius: "50%",
+                borderColor: "white",
+                borderWidth: "1dvw",
+                borderStyle: "solid",
+              }}
+            ></img>
+            <div
+              style={{
+                fontSize: "300%",
+                color: "white",
+                fontWeight: "bolder",
+              }}
+            >
+              {props.member.name}
+            </div>
+            <div style={{ color: "white", fontStyle: "italic" }}>
+              @{props.member.username}
+            </div>
 
-        <div style={{ fontSize: "3vw", color: "white", fontWeight: "bolder" }}>
-          {props.member.name}
-        </div>
-        <div style={{ fontSize: "1.5vw", color: "white", fontStyle: "italic" }}>
-          @{props.member.username}
-        </div>
+            <br />
 
-        <div className={styles.rating}>
-          <input
-            type="radio"
-            name="rating"
-            id="star-5"
-            className={styles.radio}
-            value="5"
-            onClick={(event) => handleChange(event)}
-          ></input>
-          <label htmlFor="star-5">
-            <i className="fa-solid fa-star"></i>
-          </label>
+            {!isSubmitted && (
+              <>
+                <div className={styles.rating}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    id="star-5"
+                    className={styles.radio}
+                    value="5"
+                    onClick={(event) => handleChange(event)}
+                  ></input>
+                  <label htmlFor="star-5">
+                    <i className="fa-solid fa-star"></i>
+                  </label>
 
-          <input
-            type="radio"
-            name="rating"
-            id="star-4"
-            className={styles.radio}
-            value="4"
-            onClick={(event) => handleChange(event)}
-          ></input>
-          <label htmlFor="star-4">
-            <i className="fa-solid fa-star"></i>
-          </label>
+                  <input
+                    type="radio"
+                    name="rating"
+                    id="star-4"
+                    className={styles.radio}
+                    value="4"
+                    onClick={(event) => handleChange(event)}
+                  ></input>
+                  <label htmlFor="star-4">
+                    <i className="fa-solid fa-star"></i>
+                  </label>
 
-          <input
-            type="radio"
-            name="rating"
-            id="star-3"
-            className={styles.radio}
-            value="3"
-            onClick={(event) => handleChange(event)}
-          ></input>
-          <label htmlFor="star-3">
-            <i className="fa-solid fa-star"></i>
-          </label>
+                  <input
+                    type="radio"
+                    name="rating"
+                    id="star-3"
+                    className={styles.radio}
+                    value="3"
+                    onClick={(event) => handleChange(event)}
+                  ></input>
+                  <label htmlFor="star-3">
+                    <i className="fa-solid fa-star"></i>
+                  </label>
 
-          <input
-            type="radio"
-            name="rating"
-            id="star-2"
-            className={styles.radio}
-            value="2"
-            onClick={(event) => handleChange(event)}
-          ></input>
-          <label htmlFor="star-2">
-            <i className="fa-solid fa-star"></i>
-          </label>
+                  <input
+                    type="radio"
+                    name="rating"
+                    id="star-2"
+                    className={styles.radio}
+                    value="2"
+                    onClick={(event) => handleChange(event)}
+                  ></input>
+                  <label htmlFor="star-2">
+                    <i className="fa-solid fa-star"></i>
+                  </label>
 
-          <input
-            type="radio"
-            name="rating"
-            id="star-1"
-            className={styles.radio}
-            value="1"
-            onClick={(event) => handleChange(event)}
-          ></input>
-          <label htmlFor="star-1">
-            <i className="fa-solid fa-star"></i>
-          </label>
-        </div>
-
-        <div className={styles.buttons}>
-          <div className={styles.submit} onClick={handleSubmit}>
-            Submit
-          </div>
-          <div className={styles.cancel} onClick={handleClick}>
-            Cancel
-          </div>
-        </div>
+                  <input
+                    type="radio"
+                    name="rating"
+                    id="star-1"
+                    className={styles.radio}
+                    value="1"
+                    onClick={(event) => handleChange(event)}
+                  ></input>
+                  <label htmlFor="star-1">
+                    <i className="fa-solid fa-star"></i>
+                  </label>
+                </div>
+                <br />
+                <div className={styles.buttons}>
+                  <div className={styles.submit} onClick={handleSubmit}>
+                    Submit
+                  </div>
+                  <div className={styles.cancel} onClick={handleClick}>
+                    Cancel
+                  </div>
+                </div>{" "}
+              </>
+            )}
+            {isSubmitted && (
+              <div
+                style={{
+                  color: "white",
+                  maxWidth: "45dvw",
+                  textAlign: "center",
+                }}
+              >
+                You have submitted a rating of <span>{ratingValue}</span>/5 for{" "}
+                <span style={{ color: "#a56d94", fontWeight: "bold" }}>
+                  {props.member.name}.
+                </span>
+              </div>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

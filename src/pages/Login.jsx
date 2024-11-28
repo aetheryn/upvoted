@@ -1,55 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner.jsx";
 
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [errorLogin, setErrorLogin] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-    event.preventDefault();
-    try {
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
-        },
-      };
+    if (username.length && password.length > 1) {
+      event.preventDefault();
+      setIsLoading(true);
+      try {
+        const options = {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_KEY}`,
+          },
+        };
 
-      const response = await fetch(
-        import.meta.env.VITE_AIRTABLE_SERVER,
-        options
-      );
+        const response = await fetch(
+          import.meta.env.VITE_AIRTABLE_SERVER,
+          options
+        );
 
-      if (response.ok) {
-        const data = await response.json();
-        for (const record of data.records) {
-          if (
-            username === record.fields.username &&
-            password === record.fields.password
-          ) {
-            props.setUserId(record.id);
-            props.setUser(record.fields.username);
-            navigate("/rating");
+        if (response.ok) {
+          const data = await response.json();
+          for (const record of data.records) {
+            if (
+              username === record.fields.username &&
+              password === record.fields.password
+            ) {
+              props.setUserId(record.id);
+              props.setUser(record.fields.username);
+              navigate("/rating");
+            }
           }
         }
-      }
-    } catch (error) {
-      if (error.name !== "AbortError") {
-        console.log(error.message);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          console.log(error.message);
+        }
       }
     }
-
+    setIsLoading(false);
     setErrorLogin(true);
   };
 
   const handleUsernameChange = (event) => {
+    setErrorLogin(false);
     setUsername(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
+    setErrorLogin(false);
     setPassword(event.target.value);
   };
 
@@ -116,6 +123,13 @@ const Login = (props) => {
           Login
         </div>
       </div>
+
+      {isLoading && (
+        <>
+          <br />
+          <LoadingSpinner borderColor={"black"}></LoadingSpinner>
+        </>
+      )}
     </div>
   );
 };
