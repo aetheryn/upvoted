@@ -6,10 +6,12 @@ const Rating = (props) => {
   const [displayedName, setDisplayedName] = useState("");
   const [displayedList, setDisplayedList] = useState([]);
   const [userRatings, setUserRatings] = useState({});
+  const [img, setImg] = useState("");
 
   const filterMembers = () => {
     const userData = members.find((member) => member.username === props.user);
     setDisplayedName(userData.name);
+    setImg(userData.img);
 
     const filteredArr = members.filter(
       (member) => member.username !== props.user
@@ -44,6 +46,10 @@ const Rating = (props) => {
     }
   };
 
+  const handleLogout = () => {
+    props.setUser("");
+  };
+
   useEffect(() => {
     getData();
     filterMembers();
@@ -51,19 +57,47 @@ const Rating = (props) => {
 
   return (
     <div className="rating-background">
-      <div>Hi, {displayedName}.</div>
-      <div>Who are you rating for today?</div>
-      {displayedList.map((member) => {
-        return (
-          <MemberOption
-            key={member.name}
-            member={member}
-            userRatings={userRatings}
-            getData={getData}
-            userId={props.userId}
-          />
-        );
-      })}
+      <div className="profile-navbar">
+        <img
+          src="/logout.png"
+          style={{
+            width: "8vw",
+            height: "8vw",
+          }}
+          onClick={handleLogout}
+        ></img>
+
+        <div style={{ fontWeight: "bolder" }}>{props.user}</div>
+
+        <img
+          src={img}
+          style={{ width: "10vw", height: "10vw" }}
+          className="profile-img"
+        ></img>
+      </div>
+
+      <div className="rating-contents">
+        <div>
+          <div style={{ color: "#a56d94" }}>
+            Hi, <span style={{ fontWeight: "bolder" }}>{displayedName}</span>.
+          </div>
+          <div style={{ color: "#a56d94" }}>Who are you rating for today?</div>
+        </div>
+
+        <div>
+          {displayedList.map((member) => {
+            return (
+              <MemberOption
+                key={member.name}
+                member={member}
+                userRatings={userRatings}
+                getData={getData}
+                userId={props.userId}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

@@ -30,7 +30,9 @@ function App() {
           />
           <Route
             path="rating"
-            element={<Rating user={user} userId={userId}></Rating>}
+            element={
+              <Rating user={user} userId={userId} setUser={setUser}></Rating>
+            }
           />
         </Routes>
       )}

@@ -39,9 +39,6 @@ const MemberOption = (props) => {
           style={{
             width: "15dvw",
             height: "15dvw",
-            borderRadius: "50%",
-            borderColor: "white",
-            borderWidth: "0.5dvw",
             borderStyle: "solid",
           }}
         />
