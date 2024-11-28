@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Login from "./pages/Login";
-import Rating from "./pages/Rating";
+
+const Login = React.lazy(() => import("./pages/Login"));
+const Rating = React.lazy(() => import("./pages/Rating"));
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -13,29 +14,31 @@ function App() {
 
   return (
     <div className="background">
-      {!user ? (
-        <Routes>
-          <Route path="/" element={<Navigate replace to="/login" />} />
-          <Route
-            path="login"
-            element={<Login setUser={setUser} setUserId={setUserId}></Login>}
-          />
-          <Route path="*" element={<Navigate replace to="/login" />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route
-            path="login"
-            element={<Login setUser={setUser} setUserId={setUserId}></Login>}
-          />
-          <Route
-            path="rating"
-            element={
-              <Rating user={user} userId={userId} setUser={setUser}></Rating>
-            }
-          />
-        </Routes>
-      )}
+      <Suspense>
+        {!user ? (
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/login" />} />
+            <Route
+              path="login"
+              element={<Login setUser={setUser} setUserId={setUserId}></Login>}
+            />
+            <Route path="*" element={<Navigate replace to="/login" />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route
+              path="login"
+              element={<Login setUser={setUser} setUserId={setUserId}></Login>}
+            />
+            <Route
+              path="rating"
+              element={
+                <Rating user={user} userId={userId} setUser={setUser}></Rating>
+              }
+            />
+          </Routes>
+        )}
+      </Suspense>
     </div>
   );
 }
