@@ -125,7 +125,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;
-  padding: 2vw 10vw;
+  margin-top: 3vh;
+  padding: 2vh 10vw;
   align-items: center;
   color: #a56d94;
   font-size: 4vw;
