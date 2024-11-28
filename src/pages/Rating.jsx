@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import members from "../helper/members";
 import MemberOption from "../components/MemberOption";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Rating = (props) => {
   const [displayedName, setDisplayedName] = useState("");
   const [displayedList, setDisplayedList] = useState([]);
   const [userRatings, setUserRatings] = useState({});
   const [img, setImg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const filterMembers = () => {
     const userData = members.find((member) => member.username === props.user);
@@ -20,6 +22,7 @@ const Rating = (props) => {
   };
 
   const getData = async () => {
+    setIsLoading(true);
     try {
       const options = {
         method: "GET",
@@ -44,6 +47,7 @@ const Rating = (props) => {
         console.log(error.message);
       }
     }
+    setIsLoading(false);
   };
 
   const handleLogout = () => {
@@ -84,19 +88,27 @@ const Rating = (props) => {
           <div style={{ color: "#a56d94" }}>Who are you rating for today?</div>
         </div>
 
-        <div>
-          {displayedList.map((member) => {
-            return (
-              <MemberOption
-                key={member.name}
-                member={member}
-                userRatings={userRatings}
-                getData={getData}
-                userId={props.userId}
-              />
-            );
-          })}
-        </div>
+        {isLoading && (
+          <div>
+            <br />
+            <LoadingSpinner loaderstyle={"rating-page"}></LoadingSpinner>
+          </div>
+        )}
+        {!isLoading && (
+          <div>
+            {displayedList.map((member) => {
+              return (
+                <MemberOption
+                  key={member.name}
+                  member={member}
+                  userRatings={userRatings}
+                  getData={getData}
+                  userId={props.userId}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

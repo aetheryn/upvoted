@@ -11,7 +11,11 @@
 
 .modal {
   display: grid;
-  background-color: #dfb4ba;
+  background-image: linear-gradient(
+    180deg,
+    rgba(223, 180, 186, 1) 0%,
+    rgba(255, 193, 180, 1) 100%
+  );
   border-radius: 30px;
   width: 90dvw;
   height: 90dvh;

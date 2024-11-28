@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import styles from "./LoadingSpinner.module.css";
 
 const LoadingSpinner = (props) => {
-  return <div className={styles.spinner}></div>;
+  useEffect(() => console.log(props.loaderstyle));
+  return (
+    <div className={`${styles.spinner} ${styles[props.loaderstyle]}`}></div>
+  );
 };
 
 export default LoadingSpinner;

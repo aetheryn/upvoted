@@ -127,7 +127,7 @@ const Login = (props) => {
       {isLoading && (
         <>
           <br />
-          <LoadingSpinner borderColor={"black"}></LoadingSpinner>
+          <LoadingSpinner loaderstyle={"login"}></LoadingSpinner>
         </>
       )}
     </div>

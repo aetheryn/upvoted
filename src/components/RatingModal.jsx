@@ -18,6 +18,7 @@ const Overlay = (props) => {
   };
 
   const handleSubmit = async () => {
+    console.log(ratingValue);
     setIsLoading(true);
     try {
       const options = {
@@ -46,8 +47,10 @@ const Overlay = (props) => {
       if (response.ok) {
         setIsLoading(false);
         setIsSubmitted(true);
-        setTimeout(() => props.setShowModal(false), 2000);
-        props.getData();
+        setTimeout(() => {
+          props.setShowModal(false);
+          props.getData();
+        }, 3000);
       }
     } catch (error) {
       if (error.name !== "AbortError") {
@@ -61,7 +64,7 @@ const Overlay = (props) => {
   return (
     <div className={styles.backdrop}>
       <div className={styles.modal}>
-        {isLoading && <LoadingSpinner />}
+        {isLoading && <LoadingSpinner loaderstyle={"submit"}></LoadingSpinner>}
         {!isLoading && (
           <>
             <img
@@ -175,7 +178,7 @@ const Overlay = (props) => {
                   color: "white",
                   maxWidth: "70dvw",
                   textAlign: "center",
-                  fontSize: "2vw",
+                  fontSize: "4vw",
                 }}
               >
                 You have submitted a rating of <span>{ratingValue}</span>/5 for{" "}

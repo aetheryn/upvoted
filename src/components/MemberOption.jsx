@@ -5,21 +5,15 @@ const MemberOption = (props) => {
   const [isRated, setIsRated] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const addUnclickableClass = () => {
-    const element = document.querySelector(".banner");
-    element.classList.add("unclickable");
-  };
-
   const checkRating = () => {
     if (props.member.username in props.userRatings) {
       setIsRated(true);
-      addUnclickableClass();
     }
   };
 
   useEffect(() => {
     checkRating();
-  });
+  }, [props.userRatings]);
 
   return (
     <>
@@ -32,7 +26,11 @@ const MemberOption = (props) => {
           userId={props.userId}
         ></RatingModal>
       )}
-      <div className="banner" onClick={() => setShowModal(true)}>
+      <div
+        className={`banner ${isRated ? "unclickable" : ""}`}
+        onClick={() => setShowModal(true)}
+        aria-disabled={isRated}
+      >
         <img
           src={props.member.img}
           alt={props.member.name}

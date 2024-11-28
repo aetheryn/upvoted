@@ -162,6 +162,10 @@ body {
   color: #a56d94;
 }
 
+.banner[disabled] {
+  pointer-events: none;
+}
+
 .banner.unclickable {
   pointer-events: none;
   cursor: not-allowed;
