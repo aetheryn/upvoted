@@ -70,7 +70,7 @@ body {
   display: grid;
   margin: auto;
   background-color: #ffeded;
-  width: 100vw;
+  width: 100dvw;
   min-height: 100dvh;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@ body {
   justify-self: center;
   justify-content: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 4dvw;
 }
 
 .login-button {
@@ -111,7 +111,7 @@ body {
 }
 
 .rating-background {
-  width: 100vw;
+  width: 100dvw;
   min-height: 100dvh;
   background-color: #ffeded;
   /* display: grid; */
@@ -121,33 +121,33 @@ body {
 }
 
 .profile-navbar {
-  width: 100vw;
+  width: 100dvw;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;
-  margin-top: 3vh;
-  padding: 2vh 10vw;
+  margin-top: 3dvh;
+  padding: 2dvh 10dvw;
   align-items: center;
   color: #a56d94;
-  font-size: 4vw;
+  font-size: 4dvw;
 }
 
 .profile-img {
   border-radius: 50%;
-  border: 0.5vw solid #a56d94;
+  border: 0.5dvw solid #a56d94;
 }
 
 .rating-contents {
-  padding: 10vw;
+  padding: 10dvw;
 }
 
 .banner {
   display: grid;
   grid-template-columns: 35% 65%;
-  height: 20vw;
-  width: 80vw;
+  height: 20dvw;
+  width: 80dvw;
   background-color: #dfb4ba;
-  border-radius: 2vw;
+  border-radius: 2dvw;
   align-items: center;
   justify-items: center;
   margin: 1dvh 0;

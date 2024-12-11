@@ -65,8 +65,8 @@
 }
 
 .spinner.submit {
-  width: 10vw;
-  height: 10vw;
+  width: 10dvw;
+  height: 10dvw;
   /* display: inline-block; */
   position: relative;
   margin: auto;
@@ -76,10 +76,10 @@
 .spinner.submit::before {
   content: "";
   box-sizing: border-box;
-  width: 10vw;
-  height: 10vw;
+  width: 10dvw;
+  height: 10dvw;
   border-radius: 50%;
-  border: 0.5vw solid #ffeded;
+  border: 0.5dvw solid #ffeded;
   position: absolute;
   animation: animloader 2s linear infinite;
 }

@@ -62,16 +62,16 @@ input[type="radio"]:checked ~ label i {
   /* grid-template-columns: 50% 50%; */
   justify-items: center;
   align-items: center;
-  font-size: 4vw;
+  font-size: 4dvw;
 }
 
 .submit {
   background-color: #a56d94;
   border: #a56d94 solid 0.3vw;
-  border-radius: 2vw;
+  border-radius: 2dvw;
   width: 100%;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 2dvw;
+  margin: 1dvw;
   text-align: center;
   color: white;
 }
@@ -81,12 +81,12 @@ input[type="radio"]:checked ~ label i {
 }
 
 .cancel {
-  border: #ffeded solid 0.2vw;
-  border-radius: 2vw;
+  border: #ffeded solid 0.2dvw;
+  border-radius: 2dvw;
   width: 100%;
   text-align: center;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 2dvw;
+  margin: 1dvw;
   color: white;
 }
 
