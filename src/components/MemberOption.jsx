@@ -42,14 +42,14 @@ const MemberOption = (props) => {
         />
 
         <div style={{ justifySelf: "flex-start" }}>
-          <div style={{ fontSize: "4vw", fontWeight: "bolder" }}>
+          <div style={{ fontSize: "4dvw", fontWeight: "bolder" }}>
             {props.member.name}
           </div>
-          <div style={{ fontSize: "2vw", fontStyle: "italic" }}>
+          <div style={{ fontSize: "2dvw", fontStyle: "italic" }}>
             @{props.member.username}
           </div>
           {isRated && (
-            <div style={{ fontSize: "2vw" }}>
+            <div style={{ fontSize: "2dvw" }}>
               You have rated for this person.
             </div>
           )}

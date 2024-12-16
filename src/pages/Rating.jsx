@@ -66,8 +66,8 @@ const Rating = (props) => {
         <img
           src="/logout.png"
           style={{
-            width: "8vw",
-            height: "8vw",
+            width: "8dvw",
+            height: "8dvw",
           }}
           onClick={handleLogout}
         ></img>
@@ -76,7 +76,7 @@ const Rating = (props) => {
 
         <img
           src={img}
-          style={{ width: "10vw", height: "10vw" }}
+          style={{ width: "10dvw", height: "10dvw" }}
           className="profile-img"
         ></img>
       </div>

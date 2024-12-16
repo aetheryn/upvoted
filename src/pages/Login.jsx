@@ -10,7 +10,7 @@ const Login = (props) => {
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
-    if (username.length && password.length > 1) {
+    if (username.length && password.length > 0) {
       event.preventDefault();
       setIsLoading(true);
       try {
@@ -75,7 +75,7 @@ const Login = (props) => {
       <div className="row">
         <input
           style={{
-            width: "80vw",
+            width: "80dvw",
             margin: "auto",
             height: "8dvh",
             backgroundColor: "transparent",
@@ -92,7 +92,7 @@ const Login = (props) => {
       <div className="row">
         <input
           style={{
-            width: "80vw",
+            width: "80dvw",
             margin: "auto",
             height: "8dvh",
             backgroundColor: "transparent",

@@ -82,8 +82,8 @@ const Overlay = (props) => {
               style={{
                 width: "50dvw",
                 height: "50dvw",
-                maxWidth: "30vh",
-                maxHeight: "30vh",
+                maxWidth: "30dvh",
+                maxHeight: "30dvh",
                 borderRadius: "50%",
                 borderColor: "white",
                 borderWidth: "2dvw",
@@ -92,7 +92,7 @@ const Overlay = (props) => {
             ></img>
             <div
               style={{
-                fontSize: "8vw",
+                fontSize: "8dvw",
                 color: "white",
                 fontWeight: "bolder",
               }}
@@ -100,7 +100,7 @@ const Overlay = (props) => {
               {props.member.name}
             </div>
             <div
-              style={{ fontSize: "4vw", color: "white", fontStyle: "italic" }}
+              style={{ fontSize: "4dvw", color: "white", fontStyle: "italic" }}
             >
               @{props.member.username}
             </div>
@@ -173,7 +173,7 @@ const Overlay = (props) => {
                 {isError && (
                   <div
                     style={{
-                      fontSize: "6vw",
+                      fontSize: "6dvw",
                       color: "white",
                       width: "80%",
                       textAlign: "center",
@@ -190,7 +190,7 @@ const Overlay = (props) => {
                   <div className={styles.cancel} onClick={handleClick}>
                     Cancel
                   </div>
-                </div>{" "}
+                </div>
               </>
             )}
             {isSubmitted && (
@@ -199,7 +199,7 @@ const Overlay = (props) => {
                   color: "white",
                   maxWidth: "70dvw",
                   textAlign: "center",
-                  fontSize: "6vw",
+                  fontSize: "6dvw",
                 }}
               >
                 You have submitted a rating of <span>{ratingValue}</span>/5 for{" "}
