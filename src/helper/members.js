@@ -1,10 +1,5 @@
 const members = [
   {
-    name: "¿?",
-    username: "rui",
-    img: "/rui.png",
-  },
-  {
     name: "Brian",
     username: "almightybri",
     img: "/brian.png",
@@ -28,11 +23,6 @@ const members = [
     name: "Evangeline",
     username: "onceuponEvangeline",
     img: "/evangeline.png",
-  },
-  {
-    name: "Hashiiෆ",
-    username: "HashiiPwetal",
-    img: "/hashii.png",
   },
   {
     name: "Katherine",
