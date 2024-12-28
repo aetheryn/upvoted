@@ -3,19 +3,16 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 const Login = React.lazy(() => import("./pages/Login"));
 const Rating = React.lazy(() => import("./pages/Rating"));
+const Shutdown = React.lazy(() => import("./pages/Shutdown"));
 
 function App() {
   const [userId, setUserId] = useState("");
   const [user, setUser] = useState("");
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   return (
     <div className="background">
       <Suspense>
-        {!user ? (
+        {/* {!user ? (
           <Routes>
             <Route path="/" element={<Navigate replace to="/login" />} />
             <Route
@@ -37,7 +34,12 @@ function App() {
               }
             />
           </Routes>
-        )}
+        )} */}
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/off" />} />
+          <Route path="off" element={<Shutdown></Shutdown>} />
+          <Route path="*" element={<Navigate replace to="/login" />} />
+        </Routes>
       </Suspense>
     </div>
   );
