@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate replace to="/off" />} />
           <Route path="off" element={<Shutdown></Shutdown>} />
-          <Route path="*" element={<Navigate replace to="/login" />} />
+          <Route path="*" element={<Navigate replace to="/off" />} />
         </Routes>
       </Suspense>
     </div>
