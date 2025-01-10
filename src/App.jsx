@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="background">
       <Suspense>
-        {/* {!user ? (
+        {!user ? (
           <Routes>
             <Route path="/" element={<Navigate replace to="/login" />} />
             <Route
@@ -34,12 +34,12 @@ function App() {
               }
             />
           </Routes>
-        )} */}
-        <Routes>
+        )}
+        {/* <Routes>
           <Route path="/" element={<Navigate replace to="/off" />} />
           <Route path="off" element={<Shutdown></Shutdown>} />
           <Route path="*" element={<Navigate replace to="/off" />} />
-        </Routes>
+        </Routes> */}
       </Suspense>
     </div>
   );
